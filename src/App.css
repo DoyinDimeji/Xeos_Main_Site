@@ -1,6 +1,18 @@
 @font-face {
-  font-family: 'Helvetica';
-  src: url('/Fonts/HelveticaNeue.ttf') format('truetype')
+  font-family: 'SourceSansPro';
+  src: url('/xeos-main/src/Fonts/SourceSansPro-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('/xeos-main/src/Fonts/SourceSansPro-Light.ttf') format('truetype');
+  font-weight:200;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('/xeos-main/src/Fonts/SourceSansPro-ExtraLight.ttf') format('truetype');
+  font-weight:100;
 }
 
 *{
@@ -10,6 +22,7 @@
 }
 
 body{
-  font-family: 'Helvetica Neue', 'Roboto', sans-serif;
+  font-family: 'SourceSansPro', sans-serif;
   background: black;
+  height:1000px;
 }

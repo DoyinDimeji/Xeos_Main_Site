@@ -1,0 +1,39 @@
+.bottom-bar{
+    color:white;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width:100%;
+    padding:30px;
+    font-weight:lighter;
+    letter-spacing: .1em;
+    word-spacing: .2em;
+}
+
+.bottom-bar span{
+    color:#00C6A0;
+}
+
+.bottom-bar p{
+    font-size:1.3em;
+}
+
+.bottom-bar p:first-child{
+    width:20px;
+}
+
+.bottom-bar p:nth-child(2){
+    align-self: center;
+}
+
+.bottom-bar p:last-child{
+    font-size:2em;
+    animation: levitate 1.5s linear 1s infinite;
+}
+
+@keyframes levitate{
+    from{transform: translateY(-30px);}
+    to{transform: translateY(0);}
+}
