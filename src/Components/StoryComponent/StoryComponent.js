@@ -8,8 +8,8 @@ class Story extends Component {
                 <div></div>
                 <div>
                     <div>
-                        <p>Our</p>
-                        <p>Story</p>
+                        <p>OUR</p>
+                        <p>STORY</p>
                     </div>
                 </div>
                 <div></div>

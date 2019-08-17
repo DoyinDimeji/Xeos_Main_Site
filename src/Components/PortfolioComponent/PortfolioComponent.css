@@ -1,5 +1,31 @@
-.portfolio{
-    width:100%;
-    height:100vh;
+.portfolio {
+    width: 100%;
+    height: 100vh;
     background: #000942;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio>h1 {
+    font-size: 10em;
+    font-weight: lighter;
+    position: relative;
+    z-index: 1;
+    letter-spacing: .2em;
+}
+
+.portfolio .boxes {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.portfolio .boxes>div {
+    height: 100%;
+    width: 25%;
+    border-right: .2px solid rgb(175, 175, 175);
 }

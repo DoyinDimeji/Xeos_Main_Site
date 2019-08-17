@@ -1,37 +1,20 @@
-@font-face {
-  font-family: 'SourceSansPro';
-  src: url('/xeos-main/src/Fonts/SourceSansPro-Regular.ttf') format('truetype')
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src: url('/xeos-main/src/Fonts/SourceSansPro-Light.ttf') format('truetype');
-  font-weight:200;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src: url('/xeos-main/src/Fonts/SourceSansPro-ExtraLight.ttf') format('truetype');
-  font-weight:100;
-}
-
-*{
-  padding:0;
-  margin:0;
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-html{
-  /* scroll-behavior: smooth; */
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  font-family: 'SourceSansPro', sans-serif;
+body {
+  font-family: 'Source Sans Pro', sans-serif;
   background: white;
   /* overflow: hidden; */
 }
 
-.wrapper{
-  width:100%;
-  height:auto;
+.wrapper {
+  width: 100%;
+  height: auto;
 }

@@ -1,12 +1,13 @@
 .bottom-bar{
     color:white;
     position: fixed;
+    z-index: 5;
     bottom: 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width:100%;
-    padding:30px;
+    padding:10px 20px;
     font-weight:lighter;
     letter-spacing: .1em;
     word-spacing: .2em;
@@ -31,10 +32,11 @@
 .bottom-bar p:last-child{
     font-size:2em;
     cursor: pointer;
-    /* animation: levitate 1s linear 1s infinite; */
+    animation: levitate 1.5s linear infinite;
 }
 
 @keyframes levitate{
-    from{transform: translateY(-30px);}
-    to{transform: translateY(0);}
+    0%{transform: translateY(-30px);}
+    50%{transform: translateY(0);}
+    100%{transform: translateY(-30px);}
 }

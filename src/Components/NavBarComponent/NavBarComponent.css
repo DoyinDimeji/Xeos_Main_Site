@@ -1,12 +1,13 @@
 .home-nav{
     width:100%;
-    padding:30px;
+    padding:10px 20px;
     display: flex;
     color:white;
     justify-content: space-between;
     font-weight: lighter;
     letter-spacing: .1em;
     position: fixed;
+    z-index: 5;
 }
 
 .home-nav>img{

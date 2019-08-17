@@ -6,8 +6,8 @@ class BottomBar extends Component {
         return (
             <div className="bottom-bar">
                 <p>XEOS <span>STUDIOS</span></p>
-                <p>A Home Of <span>Storytellers</span></p>
-                <p className="fas fa-angle-down" onClick={this.props.click}>v</p>
+                <p id="identity">A Home Of <span>Storytellers</span></p>
+                <p id="skipNav" onClick={this.props.click}>&darr;</p>
             </div>
         );
     }

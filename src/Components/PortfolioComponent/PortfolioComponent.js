@@ -5,7 +5,13 @@ class Portfolio extends Component{
     render(){
         return(
             <div className="portfolio">
-                Portfolio
+                <h1>PORTFOLIO</h1>
+                <div className="boxes">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         );
     }
