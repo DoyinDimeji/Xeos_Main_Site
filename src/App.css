@@ -21,7 +21,17 @@
   box-sizing: border-box;
 }
 
+html{
+  /* scroll-behavior: smooth; */
+}
+
 body{
   font-family: 'SourceSansPro', sans-serif;
   background: white;
+  /* overflow: hidden; */
+}
+
+.wrapper{
+  width:100%;
+  height:auto;
 }

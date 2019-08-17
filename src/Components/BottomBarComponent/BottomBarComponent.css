@@ -30,7 +30,8 @@
 
 .bottom-bar p:last-child{
     font-size:2em;
-    animation: levitate 1s linear 1s infinite;
+    cursor: pointer;
+    /* animation: levitate 1s linear 1s infinite; */
 }
 
 @keyframes levitate{
