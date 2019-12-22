@@ -82,7 +82,7 @@ class App extends Component {
       span.style.color = "black";
       identity.style.display = "none";
       skip.style.animation = "none";
-      skip.innerHTML = "Skip";
+      skip.innerHTML = "Next";
       skip.style.fontSize = "1em";
     }
     if (currentPosition > (storyPosition + 50)) {

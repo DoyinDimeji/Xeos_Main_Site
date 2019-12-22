@@ -6,10 +6,10 @@ class NavBar extends Component{
     render(){
         return(
             <nav className="home-nav">
-                <img id="logo" src={logo_teal} alt="home"></img>
+                <img id="logo" src={logo_teal} alt="home" height="20" width="20"></img>
                 <div className="nav-right">
                     <p>Blog</p>
-                    <p>Portfolio</p>
+                    <p>Projects</p>
                     <div className="menu">
                         <div></div>
                         <div></div>
