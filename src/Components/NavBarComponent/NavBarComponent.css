@@ -13,6 +13,8 @@
 .home-nav>img{
     height: 30px;
     cursor: pointer;
+    position: relative;
+    z-index: 101;
 }
 
 .nav-right{
@@ -32,20 +34,85 @@
     cursor: pointer;
 }
 
-.menu{
+.menu-btn{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height:15px;
+    position: relative;
+    z-index: 101;
 }
 
-.menu div{
+.menu-btn div{
     width:25px;
     height:1px;
     background:#00C6A0;
 }
 
-.menu div:last-child{
+.menu-btn div:last-child{
     width:60%;
     align-self: flex-end;
+}
+
+.menu{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0D0D0D;
+    position: fixed;
+    z-index: 100;
+    top: -100vh;
+    margin-left:-20px;
+    transition: top 3s ease-in-out;
+}
+
+.menu-open-enter-done{
+    top: 0vh;
+}
+
+.menu .title{
+    font-size: xx-large;
+    color: #00C6A0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.menu .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.menu .content::-webkit-scrollbar, .menu .content::-webkit-scrollbar-track, .menu .content::-webkit-scrollbar-thumb{
+    display: none;
+  }
+
+.menu .content ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+    color: rgba(255,255,255,.5);
+}
+
+.menu .content ul li{
+    margin: 0 100px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.menu .content ul li:hover{
+    color: white;
+    font-size: 2em;
+    margin-right: 80px;
+}
+
+.active-menu-tab{
+    color: white;
+    font-size: 2em;
+    margin-right: 80px;
 }

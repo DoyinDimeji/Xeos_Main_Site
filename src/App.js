@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
       incrementalScroll: 0,
-      onLoadPosition: 0
+      onLoadPosition: 0,
+      positionString: "Portfolio"
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.barRef = React.createRef();
@@ -95,7 +96,7 @@ class App extends Component {
     //For NavBar
     let navBar = document.querySelector("nav");
     let logo = document.querySelector("#logo");
-    let menuBars = document.querySelector(".menu").children;
+    let menuBars = document.querySelector(".menu-btn").children;
     if (currentPosition < (storyPosition - 50)) {
       navBar.style.color = "white";
       logo.src = logo_teal;
@@ -122,7 +123,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper" onKeyDown={this.handleClick.bind(this)}>
-        <NavBar />
+        <NavBar positionString={this.state.positionString}/>
         <BottomBar click={this.handleClick.bind(this)} ref={this.barRef} />
         <Home />
         <Story />
