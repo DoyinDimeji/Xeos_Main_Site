@@ -15,10 +15,42 @@ class App extends Component {
     this.state = {
       incrementalScroll: 0,
       onLoadPosition: 0,
-      positionString: "Portfolio"
+      positionString: "Home"
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.barRef = React.createRef();
+  }
+
+  selectTab = (name) => {
+    this.setState({
+      positionString: name
+    },() => {
+      const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      let currentPosition = document.documentElement.scrollTop,
+        homePosition = 0,
+        storyPosition = h,
+        portfolioPosition = 2 * h,
+        featuredPosition = 3 * h,
+        careerPosition = 4 * h,
+        blogPosition = 5 * h;
+
+      switch(name){
+        case "Home": 
+          return document.documentElement.scrollTop = homePosition;
+        case "Our Story": 
+          return document.documentElement.scrollTop = storyPosition;
+        case "Portfolio": 
+          return document.documentElement.scrollTop = portfolioPosition;
+        case "Featured": 
+          return document.documentElement.scrollTop = featuredPosition;
+        case "Career": 
+          return document.documentElement.scrollTop = careerPosition;
+        case "Blog": 
+          return document.documentElement.scrollTop = blogPosition;
+        default:
+          return document.documentElement.scrollTop = homePosition;
+      }
+    });
   }
 
   componentDidMount() {
@@ -77,6 +109,9 @@ class App extends Component {
       skip.style.animation = "levitate 1.5s linear infinite";
       skip.innerHTML = "&darr;"
       skip.style.fontSize = "2em";
+      this.setState({
+        positionString: "Home"
+      });
     }
     if (currentPosition > (homePosition + 50)) {
       bottomBar.style.color = "black";
@@ -85,12 +120,18 @@ class App extends Component {
       skip.style.animation = "none";
       skip.innerHTML = "Next";
       skip.style.fontSize = "1em";
+      this.setState({
+        positionString: "Our Story"
+      });
     }
     if (currentPosition > (storyPosition + 50)) {
       bottomBar.style.color = "white";
       span.style.color = "white";
       identity.style.display = "none";
       skip.style.animation = "none";
+      this.setState({
+        positionString: "Portfolio"
+      });
     }
 
     //For NavBar
@@ -123,7 +164,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper" onKeyDown={this.handleClick.bind(this)}>
-        <NavBar positionString={this.state.positionString}/>
+        <NavBar positionString={this.state.positionString} selectTab={this.selectTab}/>
         <BottomBar click={this.handleClick.bind(this)} ref={this.barRef} />
         <Home />
         <Story />
