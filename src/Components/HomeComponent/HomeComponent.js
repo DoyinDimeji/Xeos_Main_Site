@@ -25,7 +25,14 @@ class Home extends Component {
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.landing.appendChild(renderer.domElement);
-
+    
+    window.addEventListener('resize', function(){
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      renderer.setSize(width,height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();      
+    })
     //fog
     // scene.fog = new THREE.FogExp2(0x03544e, 0.0001);
     // renderer.setClearColor(scene.fog.color);

@@ -5,15 +5,13 @@ class Story extends Component {
     render() {
         return (
             <div className="our-story" id="storyComponent">
-                <div></div>
-                <div>
-                    <div>
-                        <p>OUR</p>
-                        <p>STORY</p>
-                    </div>
-                </div>
-                <div></div>
-                <div></div>
+                <h1>WHO WE ARE</h1>
+                <p>From the earliest men to date, stories have been an important part of our existence. Be it around a
+                    campfire, on a cave wall, on paper, or on-screen; stories are everywhere, in every form and told through
+                    various
+                    means. At Xeos Studios, we are committed to telling you stories, whatever the medium.</p>
+                <p>We. Are. Storytellers.</p>
+                <a>Learn More</a>
             </div>
         );
     }
