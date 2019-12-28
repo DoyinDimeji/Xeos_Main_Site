@@ -21,10 +21,4 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-track, body::-webkit-scrollbar-
 .wrapper {
   width: 100%;
   height: auto;
-  scroll-snap-type: y mandatory;
-}
-
-.wrapper>div{
-  scroll-snap-align: start;
-  scroll-snap-stop: always
 }

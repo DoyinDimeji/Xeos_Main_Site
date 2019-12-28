@@ -8,6 +8,7 @@ import Portfolio from './Components/PortfolioComponent/PortfolioComponent';
 import logo_teal from './Images/SVG/Xeos_logo_teal.svg';
 import logo_black from './Images/SVG/Xeos_logo_black.svg';
 import logo_white from './Images/SVG/Xeos_logo_white.svg';
+import SideBarComponent from './Components/SideBarComponent/SideBarComponent';
 
 class App extends Component {
   constructor(props) {
@@ -165,6 +166,7 @@ class App extends Component {
     return (
       <div className="wrapper" onKeyDown={this.handleClick.bind(this)}>
         <NavBar positionString={this.state.positionString} selectTab={this.selectTab}/>
+        <SideBarComponent positionString={this.state.positionString} selectTab={this.selectTab}/>
         <BottomBar click={this.handleClick.bind(this)} ref={this.barRef} />
         <Home />
         <Story />
