@@ -18,10 +18,6 @@ class Home extends Component {
       1000
     );
 
-    // let ambient = new THREE.AmbientLight(0x555555);
-    // scene.add(ambient);
-
-
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.landing.appendChild(renderer.domElement);
@@ -33,10 +29,7 @@ class Home extends Component {
       camera.aspect = width / height;
       camera.updateProjectionMatrix();      
     })
-    //fog
-    // scene.fog = new THREE.FogExp2(0x03544e, 0.0001);
-    // renderer.setClearColor(scene.fog.color);
-
+  
     //small sphere
     var distance = 80;
     var geometry = new THREE.Geometry();
@@ -59,6 +52,72 @@ class Home extends Component {
     particles.boundingSphere = 50;
     scene.add(particles);
 
+    //sphere1 for particle scatter effects
+    var distance = 85;
+    var geometry = new THREE.Geometry();
+    for (var i = 0; i < 1000; i++) {
+      var vertex = new THREE.Vector3();
+      var theta = THREE.Math.randFloatSpread(360);
+      var phi = THREE.Math.randFloatSpread(360);
+      vertex.x = distance * Math.sin(theta) * Math.cos(phi);
+      vertex.y = distance * Math.sin(theta) * Math.sin(phi);
+      vertex.z = distance * Math.cos(theta);
+      geometry.vertices.push(vertex);
+    }
+    var s_particles = new THREE.PointCloud(
+      geometry,
+      new THREE.PointCloudMaterial({
+        color: 0x44ccb2,
+        size: 0.5
+      })
+    );
+    s_particles.boundingSphere = 50;
+    scene.add(s_particles);
+
+    //sphere2 for particle scatter effects
+    var distance = 90;
+    var geometry = new THREE.Geometry();
+    for (var i = 0; i < 500; i++) {
+      var vertex = new THREE.Vector3();
+      var theta = THREE.Math.randFloatSpread(360);
+      var phi = THREE.Math.randFloatSpread(360);
+      vertex.x = distance * Math.sin(theta) * Math.cos(phi);
+      vertex.y = distance * Math.sin(theta) * Math.sin(phi);
+      vertex.z = distance * Math.cos(theta);
+      geometry.vertices.push(vertex);
+    }
+    var s2_particles = new THREE.PointCloud(
+      geometry,
+      new THREE.PointCloudMaterial({
+        color: 0x44ccb2,
+        size: 0.5
+      })
+    );
+    s2_particles.boundingSphere = 50;
+    scene.add(s2_particles);
+
+    //sphere3 for particle scatter effects
+    var distance = 92;
+    var geometry = new THREE.Geometry();
+    for (var i = 0; i < 200; i++) {
+      var vertex = new THREE.Vector3();
+      var theta = THREE.Math.randFloatSpread(360);
+      var phi = THREE.Math.randFloatSpread(360);
+      vertex.x = distance * Math.sin(theta) * Math.cos(phi);
+      vertex.y = distance * Math.sin(theta) * Math.sin(phi);
+      vertex.z = distance * Math.cos(theta);
+      geometry.vertices.push(vertex);
+    }
+    var s3_particles = new THREE.PointCloud(
+      geometry,
+      new THREE.PointCloudMaterial({
+        color: 0x44ccb2,
+        size: 0.5
+      })
+    );
+    s3_particles.boundingSphere = 50;
+    scene.add(s3_particles);
+
     //big sphere
     var bigDistance = 200;
     var bigGeometry = new THREE.Geometry();
@@ -80,41 +139,29 @@ class Home extends Component {
     bigParticles.boundingSphere = 1000;
     scene.add(bigParticles);
 
-    //clouds
-    // let cloudParticles = [];
-    // let loader = new THREE.TextureLoader();
-    // loader.load(cloud, function(texture){
-    //   let cloudGeo = new THREE.PlaneBufferGeometry(500,500);
-    //   let cloudMaterial = new THREE.MeshLambertMaterial({
-    //     map: texture,
-    //     transparent: true
-    //   });
-    //   for(let p = 0; p < 100 ; p++){
-    //     let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
-    //     cloud.position.set(
-    //       Math.random() * 800 - 400,
-    //       500,
-    //       Math.random() * 500 - 500
-    //     );
-    //     cloud.rotation.x = 1.16;
-    //     cloud.rotation.y = -0.12;
-    //     cloud.rotation.x = Math.random() * 2 * Math.PI;
-    //     cloud.material.opacity = 0.55;
-    //     cloudParticles.push(cloud);
-    //     scene.add(cloud);
-    //   }
-    // })
-
     camera.position.z = 200;
+
+    //function to animate 3d objects
     var animate = function() {
       requestAnimationFrame(animate);
+
       particles.rotation.x += 0.0003;
       particles.rotation.y += 0.001;
       particles.rotation.z += 0.0003;
+      
+      s_particles.rotation.x += 0.0001;
+      s_particles.rotation.y += 0.0007;
+      s_particles.rotation.z += 0.0001;
+      
+      s2_particles.rotation.x += 0.00008;
+      s2_particles.rotation.y += 0.0005;
+      s2_particles.rotation.z += 0.00008;
+      
+      s3_particles.rotation.x += 0.00005;
+      s3_particles.rotation.y += 0.0003;
+      s3_particles.rotation.z += 0.00005;
+
       bigParticles.rotation.y += 0.0001;
-      // cloudParticles.forEach(p => {
-      //   p.rotation.z -= 0.001
-      // })
       renderer.render(scene, camera);
     };
     animate();
@@ -122,11 +169,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div
-        className="home-background"
+      <div className="home-background"
         onScroll={this.handleScroll.bind(this)}
-        ref={ref => (this.landing = ref)}
-      ></div>
+        ref={ref => (this.landing = ref)}></div>
     );
   }
 }
