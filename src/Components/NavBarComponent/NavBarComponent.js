@@ -14,15 +14,22 @@ class NavBar extends Component {
       prevState => ({
         isMenuOpen: !prevState.isMenuOpen
       }),() => {
-          if(this.state.isMenuOpen){
-              document.body.style.overflow = "hidden";
-            }
-            else{
-              document.body.style.overflow = "scroll";
-          }
-      });
+        let menuBtnBars = document.querySelectorAll(".menu-btn-bar");
+        if(this.state.isMenuOpen){
+          document.body.style.overflow = "hidden";
+          menuBtnBars[0].style.transform = "translateY(3px) rotateZ(45deg)";
+          menuBtnBars[1].style.transform = "translateY(-4px) rotateZ(-45deg)";
+          menuBtnBars[2].style.opacity = "0";
+        }
+        else{
+          document.body.style.overflow = "scroll";
+          menuBtnBars[0].style.transform = menuBtnBars[1].style.transform = "";
+          menuBtnBars[2].style.opacity = "1";
+        }
+        
+    });
   }
-
+    
   selectedTab = (name) => {
     this.props.selectTab(name);
     document.body.style.overflow = "scroll";
@@ -30,7 +37,11 @@ class NavBar extends Component {
       this.setState({
         isMenuOpen: false
       });
-    }, 500)
+      let menuBtnBars = document.querySelectorAll(".menu-btn-bar");
+      menuBtnBars[0].style.transform = "";
+      menuBtnBars[1].style.transform = "";
+      menuBtnBars[2].style.opacity = "1";
+    }, 600)
   }
 
   mouseMoved(e){
@@ -50,9 +61,9 @@ class NavBar extends Component {
           <img id="logo" src={logo_teal} alt="home" height="20" width="20"></img>
           <div className="nav-right">
             <div className="menu-btn" onClick={this.menuDrop.bind(this)}>
-              <div></div>
-              <div></div>
-              <div></div>
+              <div className="menu-btn-bar"></div>
+              <div className="menu-btn-bar"></div>
+              <div className="menu-btn-bar"></div>
             </div>
           </div>
           <CSSTransition

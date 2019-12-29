@@ -47,6 +47,7 @@
     width:25px;
     height:1px;
     background:#00C6A0;
+    transition: .5s ease-in-out;
 }
 
 .menu-btn div:last-child{
