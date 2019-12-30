@@ -10,6 +10,7 @@ import logo_black from './Images/SVG/Xeos_logo_black.svg';
 import logo_white from './Images/SVG/Xeos_logo_white.svg';
 import SideBarComponent from './Components/SideBarComponent/SideBarComponent';
 import Contact from './Components/ContactComponent/ContactComponent';
+import Profile from './Components/ProfileComponent/ProfileComponent';
 
 class App extends Component {
   constructor(props) {
@@ -30,14 +31,17 @@ class App extends Component {
       const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       let homePosition = 0,
         storyPosition = h,
-        portfolioPosition = 2 * h,
-        contactPosition = 3 * h;
+        profilePosition = 2 * h,
+        portfolioPosition = 3 * h,
+        contactPosition = 4 * h;
 
       switch(name){
         case "Home": 
           return document.documentElement.scrollTop = homePosition;
         case "Our Story": 
           return document.documentElement.scrollTop = storyPosition;
+        case "Profile": 
+          return document.documentElement.scrollTop = profilePosition;
         case "Portfolio": 
           return document.documentElement.scrollTop = portfolioPosition;
         case "Contact": 
@@ -64,8 +68,9 @@ class App extends Component {
     let currentPosition = document.documentElement.scrollTop,
       homePosition = 0,
       storyPosition = h,
-      portfolioPosition = 2 * h,
-      contactPosition = 3 * h;
+        profilePosition = 2 * h,
+        portfolioPosition = 3 * h,
+        contactPosition = 4 * h;
 
     if (currentPosition >= homePosition && currentPosition < storyPosition) {
       this.setState({
@@ -74,8 +79,15 @@ class App extends Component {
         document.documentElement.scrollTop = this.state.incrementalScroll;
       });
     }
+    if (currentPosition >= storyPosition && currentPosition < profilePosition) {
+      this.setState({
+        incrementalScroll: profilePosition
+      }, () => {
+        document.documentElement.scrollTop = this.state.incrementalScroll;
+      });
+    }
 
-    else if (currentPosition >= storyPosition && currentPosition < portfolioPosition) {
+    else if (currentPosition >= profilePosition && currentPosition < portfolioPosition) {
       this.setState({
         incrementalScroll: portfolioPosition
       }, () => {
@@ -95,9 +107,10 @@ class App extends Component {
   handleScroll() {
     const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     let homePosition = 0,
-      storyPosition = h,
-      portfolioPosition = 2 * h,
-      contactPosition = 3 * h,
+    storyPosition = h,
+    profilePosition = 2 * h,
+    portfolioPosition = 3 * h,
+    contactPosition = 4 * h,
      currentPosition = document.documentElement.scrollTop;
 
      console.log(currentPosition);
@@ -174,6 +187,7 @@ class App extends Component {
         <BottomBar click={this.handleClick.bind(this)} ref={this.barRef} />
         <Home />
         <Story />
+        <Profile />
         <Portfolio />
         <Contact />
       </div>

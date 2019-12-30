@@ -6,7 +6,7 @@ import { CSSTransition } from "react-transition-group";
 class NavBar extends Component {
   state = {
     isMenuOpen: false,
-    tabs: ["Home", "Our Story", "Portfolio", "Contact"]
+    tabs: ["Home", "Our Story", "Profile", "Portfolio", "Contact"]
   };
 
   menuDrop() {

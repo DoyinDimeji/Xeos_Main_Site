@@ -3,7 +3,7 @@ import './SideBarComponent.css';
 
 class SideBarComponent extends Component{
     state = {
-        tabs: ["Home", "Our Story", "Portfolio", "Contact"]
+        tabs: ["Home", "Our Story", "Profile", "Portfolio", "Contact"]
     };
 
     selectedTab = (tab) => {
