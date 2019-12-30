@@ -6,7 +6,7 @@ import { CSSTransition } from "react-transition-group";
 class NavBar extends Component {
   state = {
     isMenuOpen: false,
-    tabs: ["Home", "Our Story", "Portfolio", "Featured", "Career", "Blog"]
+    tabs: ["Home", "Our Story", "Portfolio", "Contact"]
   };
 
   menuDrop() {
@@ -31,6 +31,7 @@ class NavBar extends Component {
   }
     
   selectedTab = (name) => {
+    console.log(name);
     this.props.selectTab(name);
     document.body.style.overflow = "scroll";
     setTimeout(() => {

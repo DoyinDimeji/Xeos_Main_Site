@@ -1,0 +1,76 @@
+.contact-container{
+    height: 100vh;
+    width: 100%;
+    background: #e2e2e2;
+    box-sizing: border-box;
+}
+
+.contact-container > div:first-child{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container > div > p:first-child{
+    word-spacing: 3px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.contact-container > div > p:nth-child(3){
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.contact-container > div > p:last-child{
+    word-spacing: 3px;
+    letter-spacing: 2px;
+}
+
+.contact-container > div > a{
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-container > div > a:hover{
+    text-decoration: black underline;
+}
+
+.contact-container .socials{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+}
+
+.contact-container .socials ul{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.contact-container .socials li{
+    cursor: pointer;
+}
+
+.contact-container .socials li > a{
+    color: rgb(122, 122, 122);
+}
+
+.contact-container .socials li > a:hover{
+    color: black;
+}
+
+.contact-container .socials li > a > span{
+    font-size: large;
+}
