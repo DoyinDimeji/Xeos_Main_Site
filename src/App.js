@@ -46,8 +46,6 @@ class App extends Component {
           return document.documentElement.scrollTop = portfolioPosition;
         case "Contact": 
           return document.documentElement.scrollTop = contactPosition;
-        default:
-          return document.documentElement.scrollTop = homePosition;
       }
     });
   }
@@ -111,9 +109,8 @@ class App extends Component {
     profilePosition = 2 * h,
     portfolioPosition = 3 * h,
     contactPosition = 4 * h,
-     currentPosition = document.documentElement.scrollTop;
+    currentPosition = document.documentElement.scrollTop;
 
-     console.log(currentPosition);
     //For BottomBar
     let bottomBar = document.querySelector(".bottom-bar");
     let span = document.querySelector("span");
@@ -126,12 +123,8 @@ class App extends Component {
       skip.style.animation = "levitate 1.5s linear infinite";
       skip.innerHTML = "&darr;"
       skip.style.fontSize = "2em";
-      this.setState({
-        positionString: "Home"
-      });
     }
-    if (currentPosition > (homePosition + 50) || currentPosition > (contactPosition + 50)) {
-      console.log("goat");
+    if (currentPosition > (homePosition + 50)) {
       bottomBar.style.color = "black";
       span.style.color = "black";
       identity.style.display = "none";
@@ -142,16 +135,15 @@ class App extends Component {
         positionString: "Our Story"
       });
     }
-    if (currentPosition > (storyPosition + 50)) {
+    if (currentPosition > (profilePosition + 20)) {
       bottomBar.style.color = "white";
       span.style.color = "white";
-      identity.style.display = "none";
-      skip.style.animation = "none";
-      this.setState({
-        positionString: "Portfolio"
-      });
     }
-
+    if (currentPosition > (portfolioPosition + 20)) {
+      bottomBar.style.color = "black";
+      span.style.color = "black"; 
+    }
+    
     //For NavBar
     let navBar = document.querySelector("nav");
     let logo = document.querySelector("#logo");
@@ -162,13 +154,24 @@ class App extends Component {
       for (var i = 0; i < menuBars.length; i++) {
         menuBars[i].style.background = "#00C6A0"
       }
+      this.setState({
+        positionString: "Home"
+      });
     }
-    if (currentPosition > (storyPosition - 50) || currentPosition > (contactPosition - 50)) {
+    if (currentPosition > (storyPosition - 50)) {
       navBar.style.color = "black";
       logo.src = logo_black;
       for (var i = 0; i < menuBars.length; i++) {
         menuBars[i].style.background = "black"
       }
+      this.setState({
+        positionString: "Our Story"
+      });
+    }
+    if (currentPosition > (profilePosition - 50)) {
+      this.setState({
+        positionString: "Profile"
+      });
     }
     if (currentPosition > (portfolioPosition - 50)) {
       navBar.style.color = "white";
@@ -176,6 +179,19 @@ class App extends Component {
       for (var i = 0; i < menuBars.length; i++) {
         menuBars[i].style.background = "white"
       }
+      this.setState({
+        positionString: "Portfolio"
+      });
+    }
+    if (currentPosition > (contactPosition - 50)) {
+      navBar.style.color = "black";
+      logo.src = logo_black;
+      for (var i = 0; i < menuBars.length; i++) {
+        menuBars[i].style.background = "black"
+      }
+      this.setState({
+        positionString: "Contact"
+      });
     }
   }
 

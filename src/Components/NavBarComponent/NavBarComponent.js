@@ -23,17 +23,18 @@ class NavBar extends Component {
         }
         else{
           document.body.style.overflow = "scroll";
+          document.body.style.scrollbarWidth = "none";
           menuBtnBars[0].style.transform = menuBtnBars[1].style.transform = "";
           menuBtnBars[2].style.opacity = "1";
         }
         
-    });
-  }
+      });
+    }
     
   selectedTab = (name) => {
-    console.log(name);
     this.props.selectTab(name);
     document.body.style.overflow = "scroll";
+    document.body.style.scrollbarWidth = "none";
     setTimeout(() => {
       this.setState({
         isMenuOpen: false

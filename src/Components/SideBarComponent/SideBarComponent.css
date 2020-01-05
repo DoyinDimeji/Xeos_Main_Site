@@ -2,6 +2,7 @@
     position: fixed;
     z-index: 2;
     height: 100vh;
+    right: 0;
 }
 
 .side-bar-container ul{
@@ -24,8 +25,12 @@
     color: white;
 }
 
-.active-side-tab{
+.active-side-tab-white{
     color: white !important;
+}
+
+.active-side-tab-black{
+    color: black !important;
 }
 
 .story-scrolled{
